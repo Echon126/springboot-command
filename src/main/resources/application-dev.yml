@@ -1,0 +1,26 @@
+##配置数据库版本控制和数据迁移
+spring:
+ flyway:
+   baseline-on-migrate: true
+   locations: classpath:db/migration
+###数据源配置
+ datasource:
+     driver-class-name: com.mysql.jdbc.Driver
+     type: com.alibaba.druid.pool.DruidDataSource
+     initialSize: 1
+     maxActive: 20
+     minIdle: 3
+     maxWait: 60000
+     timeBetweenEvictionRunsMillis: 60000
+     minEvictableIdleTimeMillis: 300000
+     validationQuery: SELECT 'x'
+     testWhileIdle: true
+     testOnBorrow: false
+     testOnReturn: false
+     poolPreparedStatements: true
+     maxPoolPreparedStatementPerConnectionSize: 20
+     filters: stat,wall,slf4j
+     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+     url: jdbc:mysql://127.0.0.1:3306/git-demo?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+     username: root
+     password: newpassword

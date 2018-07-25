@@ -1,0 +1,20 @@
+logging:
+  level:
+    org.springframework: info
+    com.springboot: debug
+    com.example.demo: debug
+spring:
+  profiles:
+    active: dev
+  thymeleaf:
+    cache: false
+  security:
+    user:
+      name: admin
+      password: 123456
+server:
+  port: 8089
+
+
+
+
