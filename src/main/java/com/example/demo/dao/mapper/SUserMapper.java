@@ -1,7 +1,9 @@
 package com.example.demo.dao.mapper;
 
 import com.example.demo.dao.entity.SUser;
+import com.example.demo.dao.provider.BaseUserProvider;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.SelectProvider;
 
 import java.util.List;
 
@@ -20,5 +22,6 @@ public interface SUserMapper {
 
     void deleteUser(int id) throws Exception;
 
-    SUser findUserByEmail(String email) throws Exception;
+    @SelectProvider(type=BaseUserProvider.class,method = "findUserByEmail")
+    SUser findUserByEmail(String name) throws Exception;
 }

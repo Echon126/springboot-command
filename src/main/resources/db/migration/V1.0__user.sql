@@ -1,4 +1,4 @@
-CREATE TABLE `article` (
+CREATE TABLE `user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `create_date` date NOT NULL,
   `name` varchar(255) NOT NULL,

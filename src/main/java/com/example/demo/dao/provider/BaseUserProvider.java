@@ -34,4 +34,10 @@ public class BaseUserProvider {
         }}.toString();
     }
 
+
+   public String  findUserByEmail(final String name){
+        return new SQL(){{
+            SELECT("*").FROM("user").WHERE("name=#{name}");
+        }}.toString();
+   }
 }

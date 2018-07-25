@@ -5,7 +5,7 @@ logging:
     com.example.demo: debug
 spring:
   profiles:
-    active: dev
+    active: dev,redis
   thymeleaf:
     cache: false
   security:
