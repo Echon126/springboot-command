@@ -1,8 +1,10 @@
 package com.example.demo.utils;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
+/**
+ * MD5加密
+ */
 public class MD5Util {
     private static final String SALT = "tamboo";
 
