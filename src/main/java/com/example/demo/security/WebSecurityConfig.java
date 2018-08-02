@@ -13,7 +13,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -30,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers("/", "/home").permitAll()
+                //.antMatchers("/", "/home").permitAll()
                 //其他地址的访问均需要验证权限
                 .anyRequest().authenticated()
                 .and()
@@ -71,7 +70,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         //解决静态资源被拦截的问题
-        web.ignoring().antMatchers("/css/**");
+        web.ignoring().antMatchers("/**/*.js","/css/**");
     }
 
        /* public static void main(String[] args) {
