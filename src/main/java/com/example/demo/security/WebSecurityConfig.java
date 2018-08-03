@@ -82,4 +82,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         System.out.println(corrent);
         System.out.println(corrent1);
     }*/
+
+
+    /**
+     * springSecurity 身份认证的过程
+     * TODO 1.springSecurity 中进行身份认证的是AuthenticationManager 接口
+     * TODO ProviderManager 是它一个默认实现，但该类并不用来处理身份认证，而是委培给配置好的AuthenticationProvider
+     * TODO 每个AuthenticationProvider会轮询检查身份认证，检查后或者返回Authinocation对象或者抛出异常。
+     *
+     *
+     * TODO WebSecurityConfigurerAdapter
+     *
+     *
+     */
 }
