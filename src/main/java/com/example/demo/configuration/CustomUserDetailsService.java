@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.web.WebAttributes;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -34,7 +34,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (user == null) {
 
             //throw new UsernameNotFoundException("UserName " + userName + " not found");
-           // request.setAttribute(WebAttributes.AUTHENTICATION_EXCEPTION, "用户名或者密码错误!");
+            // request.setAttribute(WebAttributes.AUTHENTICATION_EXCEPTION, "用户名或者密码错误!");
             throw new AuthenticationServiceException("用户名或者密码错误!");
         }
 
@@ -46,7 +46,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     }
 
-    private Collection<GrantedAuthority> getAuthority(){
+    private Collection<GrantedAuthority> getAuthority() {
         List<GrantedAuthority> authorityList = new ArrayList<GrantedAuthority>();
         authorityList.add(new SimpleGrantedAuthority("ROLE_ADMINE"));
         return authorityList;
@@ -61,6 +61,23 @@ public class CustomUserDetailsService implements UserDetailsService {
      * TODO 包含GrantedAuthority的UserDetails对象在构建Authentication对象是填入的数据。
      *
      */
+
+    /**
+     * 获取当前用户的信息
+     * TODO SecurityContextHolder存储当前与应用程序交互的主体的详细信息
+     */
+    public String getContext() {
+        //TODO 获取当前经过身份认证的用户的信息
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username;
+        if (principal instanceof UserDetails) {
+            username = ((UserDetails) principal).getUsername();
+        } else {
+            username = principal.toString();
+        }
+        return username;
+
+    }
 
 }
 
