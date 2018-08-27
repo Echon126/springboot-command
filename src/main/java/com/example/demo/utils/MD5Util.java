@@ -1,6 +1,8 @@
 package com.example.demo.utils;
 
 import java.security.MessageDigest;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * MD5加密
@@ -34,4 +36,11 @@ public class MD5Util {
         return hexValue.toString();
     }
 
+    public static void main(String[] args) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("name","zhangsan");
+        map.put("name","zhaosi");
+
+        System.out.println(map.toString());
+    }
 }

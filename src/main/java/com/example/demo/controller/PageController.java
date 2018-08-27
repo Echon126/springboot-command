@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class PageController {
+    String name="info message name zhangsan end";
 //    @RequestMapping("/welcome")
 //    public String index() {
 //        return "welcome";
@@ -22,4 +23,11 @@ public class PageController {
 //    public String login() {
 //        return "login";
 //    }
+
+    public String getInfo(){
+        return name;
+    }
+    public void getInfos(){
+
+    }
 }
