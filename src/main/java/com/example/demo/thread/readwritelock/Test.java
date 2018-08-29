@@ -1,4 +1,4 @@
-package com.example.demo.thread;
+package com.example.demo.thread.readwritelock;
 
 import java.util.ArrayList;
 

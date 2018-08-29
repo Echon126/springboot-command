@@ -1,0 +1,6 @@
+IMyPool 是一个接口，对外提供提供数据库连接池的基本服务，比如得到一个数据库操作管道。
+MyDefaultPool 是IMyPool的实现
+MyPooledConnection 代表数据库操作管道，他可以执行SQL，关闭管道等。
+MyPoolFactory 是一个工厂，单例模式、用于得到IMyPool实现。
+DBConfigXML 代表外部配置文件
+Test 用于测试
