@@ -1,5 +1,6 @@
 package com.example.demo.dao.entity;
 
+
 public class Menu {
     private String id;
     private String menuName;

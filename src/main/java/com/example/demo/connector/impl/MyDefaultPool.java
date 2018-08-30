@@ -3,7 +3,6 @@ package com.example.demo.connector.impl;
 import com.example.demo.connector.DBConfigXML;
 import com.example.demo.connector.IMyPool;
 import com.example.demo.connector.MyPooledConnection;
-import com.mysql.jdbc.jdbc2.optional.MysqlPooledConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
