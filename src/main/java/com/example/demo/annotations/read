@@ -1,0 +1,56 @@
+annotation(@Retention@Target)详解
+1.元注解/meta-annotation
+元注解的作用是负责注释其他注解，java5.0定义的4个标准的meta-annotation类型,他们被用来提供对其他annotation类型的说明
+@Target
+@Retention
+@Documented
+@Inherited
+这些类型和他们所支持的类在java.lang.annotaion包中可以找到，
+
+一、@Target 说明Annotation所修改的对象的范围，可被用于packages、types(类、接口、枚举、Annotation类型)
+、类型成员(方法、构造方法、成员变量、枚举类)、方法参数和本地变量。
+
+作用：用于描述注解的使用范围（被描述的注解可以用在什么地方）
+
+取值(ElementType)有：
+　　　　1.CONSTRUCTOR:用于描述构造器
+　　　　2.FIELD:用于描述域
+　　　　3.LOCAL_VARIABLE:用于描述局部变量
+　　　　4.METHOD:用于描述方法
+　　　　5.PACKAGE:用于描述包
+　　　　6.PARAMETER:用于描述参数
+　　　　7.TYPE:用于描述类、接口(包括注解类型) 或enum声明
+
+二、@Retention:定义了该Annotation被保留的时间长短，某些Annotation仅出现在源码中，而被编译器丢弃，
+而另外一些却被编译在class文件中，编译在class文件中的Annotation可能会被虚拟机忽略掉，而另外一些在
+class被装载时将被读取（请注意并不影响class的执行，因为Annotation在使用上是被分离的）。使用这个
+meta-Annotation
+作用：表示需要在什么级别保存改注释信息，用于描述注释的生命周期（即：被描述的注解在什么范围内有效）
+取值：
+1.SOURCE:在原文件中有效（即源文件保留）
+2.CLASS :在class文件中有效(即class保留)
+3.RUNTIME:在运行时有效(即运行时保留)
+
+三、@Documented:用于描述其他类型的Annotation应该被作为备注是的程序成员的公共api因此可以被例如javadoc此类的工具文档化
+Documented是一个标记注解，没有成员
+
+四、Inherited 是一个标记注解，@Inherited阐述了某个被标记的类型是被继承的，如果一个使用了@Inherited修改的Annotation
+类型被用于一个class，则这个Annotation将被用于该class的子类。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

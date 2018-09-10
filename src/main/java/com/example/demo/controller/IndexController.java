@@ -39,7 +39,7 @@ public class IndexController {
 
     @RequestMapping("/")
     public String root() {
-        return "index";
+        return "www.baidu.com";
 
     }
 
