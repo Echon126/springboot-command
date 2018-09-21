@@ -53,6 +53,11 @@ public class MyTomcat {
         }
     }
 
+    /**
+     * TODO Tomcat 的处理的基本流程，把URL对应的servlet关系形成，解析http协议，封装请求/相应对象，利用反射实例初始化具体的servlet进行具体的处理
+     * @param myRequest
+     * @param myResponse
+     */
     private void dispatch(MyRequest myRequest, MyResponse myResponse) {
         String clazz = urlServletMap.get(myRequest.getUrl());
         try {

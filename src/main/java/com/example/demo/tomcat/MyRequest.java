@@ -29,18 +29,24 @@ public class MyRequest {
         this.method = method;
     }
 
+    /**
+     * TODO 解析http协议，提取头部信息以及相关的参数和方法名
+     *
+     * @param inputStream
+     * @throws IOException
+     */
     public MyRequest(InputStream inputStream) throws IOException {
         String httpRequest = "";
         byte[] httpRequestBytes = new byte[1024];
-        int length=0;
-        if((length=inputStream.read(httpRequestBytes))>0){
-            httpRequest = new String(httpRequestBytes,0,length);
+        int length = 0;
+        if ((length = inputStream.read(httpRequestBytes)) > 0) {
+            httpRequest = new String(httpRequestBytes, 0, length);
         }
 
-        if(!StringUtils.isEmpty(httpRequest)){
+        if (!StringUtils.isEmpty(httpRequest)) {
             String httpHead = httpRequest.split("\n")[0];
             url = httpHead.split("\\s")[1];
-            method= httpHead.split("\\s")[0];
+            method = httpHead.split("\\s")[0];
             System.out.println(this);
         }
     }

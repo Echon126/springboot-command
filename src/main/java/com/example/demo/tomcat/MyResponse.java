@@ -26,4 +26,5 @@ public class MyResponse {
         outputStream.write(httpResponse.toString().getBytes());
         outputStream.close();
     }
+    //TODO 基于http协议的格式进行输出写入
 }
