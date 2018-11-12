@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2018-9-10 16:04
  */
 public class CacheUtils {
-    private static  int threadCount = 4;
+    private static int threadCount = 4;
     private long maximumSize = 100000;
     private long expireAfterAccess = 8;
 
@@ -26,6 +26,7 @@ public class CacheUtils {
     }
 
     private class CacheLoaderData extends CacheLoader<String, Object> {
+        //TODO 实现CacheLoader 类的load方法用于加载需要缓存的数据
         @Override
         public Object load(String key) throws Exception {
             System.out.println("加载数据--------");
@@ -53,7 +54,7 @@ public class CacheUtils {
     public static void main(String[] args) throws ExecutionException {
         CacheUtils cacheUtils = new CacheUtils();
         Executor executor = Executors.newFixedThreadPool(4);
-        for (int i = 0; i <threadCount;i++) {
+        for (int i = 0; i < threadCount; i++) {
             executor.execute(new Runnable() {
                 @Override
                 public void run() {
